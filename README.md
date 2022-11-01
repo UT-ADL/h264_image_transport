@@ -24,7 +24,7 @@ This repo has been created to be used in pair with the [nvidia_gmsl_driver_ros](
 - Build and source the workspace
   ```bash
   catkin_make
-  source ./devel/bash
+  source devel/setup.bash
   ```
 - The H264 plugin for the ROS image transport is now available.
 
