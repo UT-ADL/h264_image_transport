@@ -45,6 +45,6 @@ This repo has been created to be used in pair with the [nvidia_gmsl_driver_ros](
   ```
 - You can then decompress h264 messages like so :
   ```bash
-  rosrun image_transport republish h264
+  rosrun image_transport republish h264 in:=/interfacea/link0/image out:=/interfacea/link0/image/repub
   ```
   For for details see the image transport republish [doc](http://wiki.ros.org/image_transport#republish).
