@@ -44,6 +44,6 @@ packets published with the `sensor_msgs/CompressedImage` message.
   ```
 - You can then decompress h264 messages like so :
   ```bash
-  rosrun image_transport republish h264
+  rosrun image_transport republish h264 in:=/interfacea/link0/image out:=/interfacea/link0/image/repub
   ```
   For details see the image transport republish [doc](http://wiki.ros.org/image_transport#Nodes).
