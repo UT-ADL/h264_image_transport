@@ -2,7 +2,7 @@
 
 <sup>Forked from [tilk/h264_image_transport](https://github.com/tilk/h264_image_transport).</sup>
 
-H264 subscription plugin for the ROS image transport.  
+ROS2 support for H264 subscription plugin for the ROS image transport.  
 This repo has been created to be used in pair with
 the [nvidia_gmsl_driver_ros](https://github.com/UT-ADL/nvidia_gmsl_driver_ros) but can be used to decode any h264
 packets published with the `sensor_msgs/CompressedImage` message.
@@ -13,17 +13,17 @@ packets published with the `sensor_msgs/CompressedImage` message.
 
 - Create a workspace
   ```bash
-  mkdir -p catkin_ws/src
-  cd catkin_ws
+  mkdir -p ros2_ws/src
+  cd ros2_ws
   ```
 - Clone the repo
   ```bash
-  git clone git@github.com:UT-ADL/h264_image_transport.git src/h264_image_transport
+  git clone git@github.com:UT-ADL/h264_image_transport.git -b ros2 src/h264_image_transport
   ```
 - Build and source the workspace
   ```bash
-  catkin build
-  source devel/setup.bash
+  colcon build --symlink-install
+  source install/setup.bash
   ```
 - The H264 plugin for the ROS image transport is now available.
 
@@ -31,7 +31,7 @@ packets published with the `sensor_msgs/CompressedImage` message.
 
 - You can verify that the plugin is loaded correctly with :
   ```bash
-  rosrun image_transport list_transports
+  ros2 run image_transport list_transports
   ```
 
   You should see :
@@ -44,6 +44,6 @@ packets published with the `sensor_msgs/CompressedImage` message.
   ```
 - You can then decompress h264 messages like so :
   ```bash
-  rosrun image_transport republish h264 in:=/interfacea/link0/image out:=/interfacea/link0/image/repub
+  ros2 run image_transport republish h264 --remap in/h264:=/interfacea/link0/image --remap out:=/interfacea/link0/image/repub
   ```
   For details see the image transport republish [doc](http://wiki.ros.org/image_transport#Nodes).
